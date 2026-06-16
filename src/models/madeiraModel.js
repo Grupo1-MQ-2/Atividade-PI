@@ -8,11 +8,11 @@ function buscarMadeiraPorUsuario(idUsuario) {
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(descricao, idUsuario, durabilidade, estabilidade, exposicao, selagem) {
+function cadastrar(nome, descricao, idUsuario, durabilidade, estabilidade, exposicao, selagem) {
   
   var instrucaoSql = `
-    INSERT INTO madeira (descricao, fk_usuario, durabilidade, estabilidade, exposicao, selagem) 
-    VALUES ('${descricao}', ${idUsuario}, '${durabilidade}', '${estabilidade}', '${exposicao}', '${selagem}')
+    INSERT INTO madeira (nome, descricao, fk_usuario, classificacao_de_durabilidade_natural, Estabilidade_Dimensional, Exposicao_ao_Ambiente, Necessidade_de_Tratamento_e_Selagem) 
+    VALUES ('${nome}','${descricao}', ${idUsuario}, '${durabilidade}', '${estabilidade}', '${exposicao}', '${selagem}')
   `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);

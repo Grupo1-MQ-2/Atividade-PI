@@ -3,9 +3,11 @@
   background-color: #1a1008;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .catalogo-container {
+  display: flex;
   flex-direction: column;
   padding: 40px 0;
   gap: 30px;

@@ -16,19 +16,19 @@ function buscarMadeiraPorUsuario(req, res) {
   });
 }
 
-
 function cadastrar(req, res) {
+  var nome = req.body.nome;
   var descricao = req.body.descricao;
   var idUsuario = req.body.idUsuario;
-  var durabilidade = req.body.descricao;
-  var estabilidade = req.body.descricao;
-  var exposicao = req.body.descricao;
-  var selagem = req.body.descricao;
+  var durabilidade = req.body.durabilidade;
+  var estabilidade = req.body.estabilidade;
+  var exposicao = req.body.exposicao;
+  var selagem = req.body.selagem;
 
   if (descricao == undefined) {
     res.status(400).send("descricao está undefined!");
   } else if (durabilidade == undefined) {
-    res.status(400).send("durabilidade está undefined!");  
+    res.status(400).send("durabilidade está undefined!");
   } else if (estabilidade == undefined) {
     res.status(400).send("estabilidade está undefined!");
   } else if (exposicao == undefined) {
@@ -39,16 +39,13 @@ function cadastrar(req, res) {
     res.status(400).send("idUsuario está undefined!");
   } else {
 
-    madeiraModel.cadastrar(descricao, idUsuario, estabilidade, exposicao, durabilidade, selagem)
+    madeiraModel.cadastrar(descricao, idUsuario, durabilidade, estabilidade, exposicao, selagem)
       .then((resultado) => {
         res.status(201).json(resultado);
-      }
-      ).catch((erro) => {
+      })
+      .catch((erro) => {
         console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
-          erro.sqlMessage
-        );
+        console.log("\nHouve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
       });
   }
