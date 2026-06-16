@@ -2,181 +2,236 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WoodStock | Catálogo</title>
 
-    <title>WoodStock | Cadastro</title>
-    <script src="./js/sessao.js"></script>
+  <script src="./js/sessao.js"></script>
 
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" href="./assets/icon/favicon2.ico" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="./css/estilo.css" />
+  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
 <body>
-    <div id="Visualizar" style="display: flex;">
-        <div id="titulo">
-            <h1>Catálogo</h1><br>
-            <h3>Aqui você pode inserir e demonstrar o seu conhecimento sobre Toras!</h3>
-        </div>
 
-        <div id="btn_opcoes">
-            <button class="btn_madeira" onclick="AdicionarMadeira()">Adicionar Madeira</button>
-            <button class="btn_madeira" onclick="EditarMadeira()">Editar Madeira</button>
-        </div>
-    </div>
-  </div>
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
+  <!-- HEADER -->
+  <div class="header">
     <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
-
-<<<<<<< HEAD
-    <div id="Adicionar" style="display: none;">
-        <h1>Vamos adicionar sua madeira e mostrar seus conhecimentos!</h1>
-        <div id="ipts_inputs">
-            Nome Madeira: <input id="ipt_nomeMadeira"><br>
-
-            Durabilidade Madeira: <select id="Durabilidade">
-                <option id="Altamente">Altamente Resistente</option>
-                <option id="Moderadamente">Moderadamente Resistente</option>
-                <option id="Não">Não Resistente</option>
-            </select><br>
-
-            Estabilidade Madeira: <select id="Estabilidade">
-                <option id="Alta">Alta Estabilidade</option>
-                <option id="Baixa">Baixa</option> Estabilidade</option>
-            </select><br>
-
-            Exposição ao Ambiente: <select id="Exposição">
-                <option id="Contato_Direto">Contato Direto</option>
-                <option id="Ambientes_Internos">Ambientes Úmidos Internos</option>
-            </select><br>
-
-            Tratamento e Selagem: <select id="Tratamento">
-                <option id="Autoclave">Autoclave</option>
-                <option id="Acabamento">Acabamento Hidrofugante</option>
-            </select><br>
-        </div>
-
-    </div>
-
-</body>
-<script>
-    function AdicionarMadeira(){
-        Visualizar.style.display = 'none';
-        Adicionar.style.display = 'flex';
-    }
-
-    function EditarMadeira(){
-        Visualizar.style.display = 'none';
-        Adicionar.style.display = 'flex';
-    }
-=======
-        <div id="div_erros_login"></div>
-      </div>
+      <h1 class="titulo">WoodStock</h1>
+      <ul class="navbar">
+        <li><a href="index.html">Inicial</a></li>
+        <li><a href="catalogo.html" class="agora">Catálogo</a></li>
+        <li>|</li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
     </div>
   </div>
 
+  <!-- CATÁLOGO: LISTAGEM -->
+  <div id="view-listagem" class="catalogo-wrapper">
+    <div class="container catalogo-container">
+
+      <div class="catalogo-header">
+        <div>
+          <h2 class="catalogo-titulo">Catálogo de Madeiras</h2>
+          <p class="catalogo-subtitulo">Registre e consulte suas toras com detalhes técnicos completos.</p>
+        </div>
+        <button class="btn" onclick="mostrarFormulario()">+ Adicionar Madeira</button>
+      </div>
+
+      <!-- Listagem de cards -->
+      <div id="lista-madeiras" class="lista-madeiras">
+        <p class="sem-registros">Nenhuma madeira cadastrada ainda.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CATÁLOGO: FORMULÁRIO DE ADIÇÃO -->
+  <div id="view-formulario" class="catalogo-wrapper" style="display: none;">
+    <div class="container catalogo-container">
+
+      <div class="catalogo-header">
+        <div>
+          <h2 class="catalogo-titulo">Nova Madeira</h2>
+          <p class="catalogo-subtitulo">Preencha os campos abaixo para registrar uma nova tora.</p>
+        </div>
+        <button class="btn btn-secundario" onclick="voltarListagem()">← Voltar</button>
+      </div>
+
+      <div class="card formulario-card">
+
+        <div class="alerta_erro">
+          <div id="card_erro" class="card_erro">
+            <span id="mensagem_erro"></span>
+          </div>
+        </div>
+
+        <div class="formulario">
+
+          <div class="campo">
+            <span class="tipo_campo">Nome da Madeira</span>
+            <input id="ipt_nomeMadeira" type="text" placeholder="Ex: Ipê, Jatobá, Cedro..." />
+          </div>
+
+          <div class="campo">
+            <span class="tipo_campo">Durabilidade</span>
+            <select id="sel_durabilidade">
+              <option value="Altamente Resistente">Altamente Resistente</option>
+              <option value="Moderadamente Resistente">Moderadamente Resistente</option>
+              <option value="Não Resistente">Não Resistente</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <span class="tipo_campo">Estabilidade</span>
+            <select id="sel_estabilidade">
+              <option value="Alta Estabilidade">Alta Estabilidade</option>
+              <option value="Baixa Estabilidade">Baixa Estabilidade</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <span class="tipo_campo">Exposição ao Ambiente</span>
+            <select id="sel_exposicao">
+              <option value="Contato Direto">Contato Direto</option>
+              <option value="Ambientes Úmidos Internos">Ambientes Úmidos Internos</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <span class="tipo_campo">Tratamento e Selagem</span>
+            <select id="sel_selagem">
+              <option value="Autoclave">Autoclave</option>
+              <option value="Acabamento Hidrofugante">Acabamento Hidrofugante</option>
+            </select>
+          </div>
+
+          <div class="loading-div" id="loading">
+            <img src="./assets/imgs/loading.gif" alt="Carregando..." />
+          </div>
+
+          <button class="btn" onclick="cadastrarMadeira()">Salvar Madeira</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <div class="footer">
     <div class="container">
-      <h4>WoodStock &hearts; SPTech &copy; 2026</h4>
+      <h4>WoodStock</h4>
     </div>
   </div>
-  </body>
 
-</html>
+  <script>
 
-<script>
-  function cadastrar() {
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
-  
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-      return false;
-    } else if (senhaVar != confirmacaoSenhaVar) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "As senhas não coincidem!";
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
+    function mostrarFormulario() {
+      document.getElementById('view-listagem').style.display = 'none';
+      document.getElementById('view-formulario').style.display = 'flex';
     }
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+    function voltarListagem() {
+      document.getElementById('view-formulario').style.display = 'none';
+      document.getElementById('view-listagem').style.display = 'flex';
+      carregarMadeiras();
+    }
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
+    function mostrarErro(mensagem) {
+      var cardErro = document.getElementById('card_erro');
+      var msgErro  = document.getElementById('mensagem_erro');
+      msgErro.textContent = mensagem;
+      cardErro.style.display = 'block';
+      setTimeout(() => { cardErro.style.display = 'none'; }, 4000);
+    }
 
-          limparFormulario();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
+    function getIdUsuario() {
+      // Ajuste conforme a sua implementação de sessão (sessionStorage / localStorage / cookie)
+      return sessionStorage.getItem('idUsuario') || localStorage.getItem('idUsuario');
+    }
+
+    function cadastrarMadeira() {
+      var descricao    = document.getElementById('ipt_nomeMadeira').value.trim();
+      var durabilidade = document.getElementById('sel_durabilidade').value;
+      var estabilidade = document.getElementById('sel_estabilidade').value;
+      var exposicao    = document.getElementById('sel_exposicao').value;
+      var selagem      = document.getElementById('sel_selagem').value;
+      var idUsuario    = getIdUsuario();
+
+      if (!descricao) {
+        mostrarErro('Informe o nome da madeira.');
+        return;
+      }
+      if (!idUsuario) {
+        mostrarErro('Usuário não identificado. Faça login novamente.');
+        return;
+      }
+
+      document.getElementById('loading').style.display = 'block';
+
+      fetch('/madeira/cadastrar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ descricao, idUsuario, durabilidade, estabilidade, exposicao, selagem })
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+        .then(res => {
+          document.getElementById('loading').style.display = 'none';
+          if (res.status === 201) {
+            document.getElementById('ipt_nomeMadeira').value = '';
+            voltarListagem();
+          } else {
+            return res.text().then(txt => mostrarErro('Erro ao salvar: ' + txt));
+          }
+        })
+        .catch(err => {
+          document.getElementById('loading').style.display = 'none';
+          mostrarErro('Erro de conexão com o servidor.');
+          console.error(err);
+        });
+    }
 
-    return false;
-  }
+    function carregarMadeiras() {
+      var idUsuario = getIdUsuario();
+      if (!idUsuario) return;
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
->>>>>>> f68b0e4bc2dfdf57234cba921d5087b8033c5aac
-</script>
+      fetch(`/madeira/${idUsuario}`)
+        .then(res => {
+          if (res.status === 204) return [];
+          return res.json();
+        })
+        .then(madeiras => renderizarMadeiras(madeiras))
+        .catch(err => console.error('Erro ao carregar madeiras:', err));
+    }
+
+    function renderizarMadeiras(madeiras) {
+      var lista = document.getElementById('lista-madeiras');
+
+      if (!madeiras || madeiras.length === 0) {
+        lista.innerHTML = '<p class="sem-registros">Nenhuma madeira cadastrada ainda. Clique em "+ Adicionar Madeira" para começar.</p>';
+        return;
+      }
+
+      lista.innerHTML = madeiras.map(m => `
+        <div class="madeira-card">
+          <h3 class="madeira-nome">${m.descricao}</h3>
+          <div class="madeira-tags">
+            <span class="tag">${m.durabilidade}</span>
+            <span class="tag">${m.estabilidade}</span>
+            <span class="tag">${m.exposicao}</span>
+            <span class="tag">${m.selagem}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    carregarMadeiras();
+  </script>
+
+</body>
+</html>
