@@ -65,9 +65,10 @@ body {
 
 .banner {
   height: var(--tamanho-banner);
-  color: white;
-  background-image: url('../assets/imgs/foto_banner.jpg');
+  color: #9A7B4F;
+  background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/imgs/foto_banner.jpg');
   background-size: cover;
+  
 }
 
 .banner .container {
@@ -85,6 +86,9 @@ body {
 
 .banner .container span {
   font-weight: 800;
+}
+.destaque{
+  color: #9A7B4F;
 }
 
 /* MISSÃO VISÃO VALORES */
@@ -122,7 +126,7 @@ body {
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
+  background-color:  #A96E58;
   height: 100px;
   color: #fff;
   display: flex;
