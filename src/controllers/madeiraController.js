@@ -1,9 +1,9 @@
-var aquarioModel = require("../models/aquarioModel");
+var madeiraModel = require("../models/madeiraModel");
 
-function buscarAquariosPorEmpresa(req, res) {
+function buscarMadeiraPorUsuario(req, res) {
   var idUsuario = req.params.idUsuario;
 
-  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+  madeiraModel.buscarMadeiraPorUsuario(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -11,7 +11,7 @@ function buscarAquariosPorEmpresa(req, res) {
     }
   }).catch(function (erro) {
     console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    console.log("Houve um erro ao buscar as madeiras: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
 }
@@ -20,6 +20,10 @@ function buscarAquariosPorEmpresa(req, res) {
 function cadastrar(req, res) {
   var descricao = req.body.descricao;
   var idUsuario = req.body.idUsuario;
+  var durabilidade = req.body.descricao;
+  var estabilidade = req.body.descricao;
+  var exposicao = req.body.descricao;
+  var selagem = req.body.descricao;
 
   if (descricao == undefined) {
     res.status(400).send("descricao está undefined!");
@@ -28,7 +32,7 @@ function cadastrar(req, res) {
   } else {
 
 
-    aquarioModel.cadastrar(descricao, idUsuario)
+    madeiraModel.cadastrar(descricao, idUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -44,6 +48,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarMadeiraPorUsuario,
   cadastrar
 }
