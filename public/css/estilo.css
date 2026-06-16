@@ -23,7 +23,8 @@ body {
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  border-bottom: 2px solid #231709;
+  background-color: #A96E58;
 }
 
 .header .container {
@@ -34,7 +35,7 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: #362511;
 }
 
 .agora {
@@ -47,11 +48,11 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color:  #362511;
 }
 
 .titulo {
-  color: #32b9cd;
+  color:  #362511;
   width: fit-content;
   font-weight: 500;
 }
@@ -65,7 +66,7 @@ body {
 .banner {
   height: var(--tamanho-banner);
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: url('../assets/imgs/foto_banner.jpg');
   background-size: cover;
 }
 
@@ -122,7 +123,7 @@ body {
 
 .footer {
   background-color: #32b9cd;
-  height: 150px;
+  height: 100px;
   color: #fff;
   display: flex;
   font-size: 15px;
@@ -134,7 +135,7 @@ body {
 }
 
 .footer .container .version {
-  font-size: 12px;
+  font-size: 5px;
 }
 
 /* LOGIN */
