@@ -151,7 +151,11 @@ body {
 
 .login {
   height: var(--tamanho-login);
+<<<<<<< HEAD
   background-image: url('../assets/imgs/foto_cadastro.jpg');
+=======
+  background-image: url('../assets/imgs/foto_banner.jpg');
+>>>>>>> 7223867e62a825b2a188c2732a8b48d9e041e135
   background-size: cover;
 }
 
@@ -168,7 +172,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+<<<<<<< HEAD
   color: rgb(201, 194, 196);
+=======
+  color: #3f271e;
+>>>>>>> 7223867e62a825b2a188c2732a8b48d9e041e135
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
