@@ -2,29 +2,70 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Catálogo</title>
+    <title>AquaTech | Catálogo</title>
 
-  <script src="./js/sessao.js"></script>
+    <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/style.css"/>
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./assets/icon/favicon2.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
+
 <body>
-    <div id="titulo">
-        <h1>Catálogo</h1><br>
-        <h3>Aqui você pode inserir e demonstrar o seu conhecimento sobre Toras!</h3>
+    <div id="Visualizar" style="display: flex;">
+        <div id="titulo">
+            <h1>Catálogo</h1><br>
+            <h3>Aqui você pode inserir e demonstrar o seu conhecimento sobre Toras!</h3>
+        </div>
+
+        <div id="btn_opcoes">
+            <button class="btn_madeira" onclick="AdicionarMadeira()">Adicionar Madeira</button>
+            <button class="btn_madeira" onclick="EditarMadeira()">Editar Madeira</button>
+        </div>
     </div>
 
-    <div id="btn_opcoes">
-        <button class="btn_madeira" onclick="AdicionarMadeira()">Adicionar Madeira</button>
-        <button class="btn_madeira" onclick="AdicionarMadeira()">Editar Madeira</button>
+    <div id="Adicionar" style="display: none;">
+        <h1>Vamos adicionar sua madeira e mostrar seus conhecimentos!</h1>
+        <div id="ipts_inputs">
+            Nome Madeira: <input id="ipt_nomeMadeira"><br>
+
+            Durabilidade Madeira: <select id="Durabilidade">
+                <option id="Altamente">Altamente Resistente</option>
+                <option id="Moderadamente">Moderadamente Resistente</option>
+                <option id="Não">Não Resistente</option>
+            </select><br>
+
+            Estabilidade Madeira: <select id="Estabilidade">
+                <option id="Alta">Alta Estabilidade</option>
+                <option id="Baixa">Baixa</option> Estabilidade</option>
+            </select><br>
+
+            Exposição ao Ambiente: <select id="Exposição">
+                <option id="Contato_Direto">Contato Direto</option>
+                <option id="Ambientes_Internos">Ambientes Úmidos Internos</option>
+            </select><br>
+
+            Tratamento e Selagem: <select id="Tratamento">
+                <option id="Autoclave">Autoclave</option>
+                <option id="Acabamento">Acabamento Hidrofugante</option>
+            </select><br>
+        </div>
+
     </div>
+
 </body>
 <script>
+    function AdicionarMadeira(){
+        Visualizar.style.display = 'none';
+        Adicionar.style.display = 'flex';
+    }
 
+    function EditarMadeira(){
+        Visualizar.style.display = 'none';
+        Adicionar.style.display = 'flex';
+    }
 </script>

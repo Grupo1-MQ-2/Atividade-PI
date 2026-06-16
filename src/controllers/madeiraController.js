@@ -27,12 +27,19 @@ function cadastrar(req, res) {
 
   if (descricao == undefined) {
     res.status(400).send("descricao está undefined!");
+  } else if (durabilidade == undefined) {
+    res.status(400).send("durabilidade está undefined!");  
+  } else if (estabilidade == undefined) {
+    res.status(400).send("estabilidade está undefined!");
+  } else if (exposicao == undefined) {
+    res.status(400).send("exposicao está undefined!");
+  } else if (selagem == undefined) {
+    res.status(400).send("selagem está undefined!");
   } else if (idUsuario == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
 
-
-    madeiraModel.cadastrar(descricao, idUsuario)
+    madeiraModel.cadastrar(descricao, idUsuario, estabilidade, exposicao, durabilidade, selagem)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
